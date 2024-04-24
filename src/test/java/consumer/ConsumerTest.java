@@ -65,13 +65,12 @@ public class ConsumerTest {
      */
     return builder
         .expectsToReceiveMessageInteraction(
-            "A sample message", messageInteractionBuilder -> {
-              return messageInteractionBuilder.withContents(messageContentsBuilder -> {
-                return messageContentsBuilder
-                    .withContent(jsonBody)
-                    .withMetadata(new HashMap<>());
-              });
-            })
+            "A sample message", messageInteractionBuilder -> messageInteractionBuilder.withContents(
+                messageContentsBuilder -> {
+                  return messageContentsBuilder
+                      .withContent(jsonBody)
+                      .withMetadata(new HashMap<>());
+                }))
         .toPact();
 
   }
